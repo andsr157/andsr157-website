@@ -39,6 +39,6 @@ export const DATA_PROJECT = [
     name: "Kreafund",
     year: "2023",
     imgUrl: "/projects/img1.png",
-    projectUrl: "https://kreafund.dancok.fun",
+    projectUrl: "https://kreafund.jowwo.xyz",
   },
 ];
