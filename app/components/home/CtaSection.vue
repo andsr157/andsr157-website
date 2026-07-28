@@ -1,43 +1,14 @@
 <script setup lang="ts">
-const form = reactive({
-  name: "",
-  email: "",
-  interests: [] as string[],
-  question: "",
-});
+const { form, error, toggleInterest, sendMessage } = useContactForm()
 
 const interestOptions = [
-  "UX/UI Design",
-  "Web Design",
-  "Web Development",
-  "Website Creation",
-  "Landing Page",
-  "Other",
-];
-
-const toggleInterest = (interest: string) => {
-  const index = form.interests.indexOf(interest);
-  if (index === -1) {
-    form.interests.push(interest);
-  } else {
-    form.interests.splice(index, 1);
-  }
-};
-
-const sendMessage = () => {
-  const subject = encodeURIComponent(`Contact from ${form.name}`);
-  const body = encodeURIComponent(
-    `Name: ${form.name}\n` +
-      `Email: ${form.email}\n` +
-      `Interested in: ${form.interests.join(", ")}\n\n` +
-      `Message:\n${form.question}`
-  );
-
-  window.open(
-    `mailto:andikasatrio159@gmail.com?subject=${subject}&body=${body}`,
-    "_blank"
-  );
-};
+  'UX/UI Design',
+  'Web Design',
+  'Web Development',
+  'Website Creation',
+  'Landing Page',
+  'Other',
+]
 </script>
 
 <template>
@@ -100,6 +71,9 @@ const sendMessage = () => {
         class="p-5 lg:p-[30px] border-[1px] border-opacity-20 border-white w-full rounded-3xl mt-6 lg:mt-0"
       >
         <form @submit.prevent="sendMessage">
+          <div v-if="error" class="mb-4 text-red-400 text-sm">
+            {{ error }}
+          </div>
           <div class="mb-5">
             <label for="" class="text-sm">Your Data</label>
             <div

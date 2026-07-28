@@ -26,7 +26,6 @@
           >
             <h2 class="main_text2__firstname">ANDIKA</h2>
             <h2 class="">SATRIO NUGROHO</h2>
-            <Link label="linkku" />
           </div>
         </div>
       </div>

@@ -4,7 +4,7 @@ const props = defineProps<{
   url: string
   image: string
   name: string
-  year: number
+  year: string
 }>()
 
 const numSquares = ref<number>(0)
@@ -12,23 +12,16 @@ const squareSideLength = ref<number>(0)
 
 onMounted(async () => {
   await nextTick()
-  const imageContainer = document.querySelector(
-    ".imageContainer"
-  ) as HTMLElement
-  if (imageContainer) {
-    const imageContainerWidth = imageContainer?.offsetWidth
-    const imageContainerHeight = imageContainer?.offsetHeight
-    squareSideLength.value =
-      Math.min(imageContainerWidth, imageContainerHeight) / 8
+  const imageContainer = document.querySelector('.imageContainer') as HTMLElement | null
+  if (!imageContainer) return
 
-    const numSquaresWidth = Math.floor(
-      imageContainerWidth / squareSideLength.value
-    )
-    const numSquaresHeight = Math.floor(
-      imageContainerHeight / squareSideLength.value
-    )
-    numSquares.value = numSquaresHeight * numSquaresWidth
-  }
+  const imageContainerWidth = imageContainer.offsetWidth
+  const imageContainerHeight = imageContainer.offsetHeight
+  squareSideLength.value = Math.min(imageContainerWidth, imageContainerHeight) / 8
+
+  const numSquaresWidth = Math.floor(imageContainerWidth / squareSideLength.value)
+  const numSquaresHeight = Math.floor(imageContainerHeight / squareSideLength.value)
+  numSquares.value = numSquaresHeight * numSquaresWidth
 })
 </script>
 
@@ -47,13 +40,14 @@ onMounted(async () => {
           >
             <div
               v-for="i in numSquares"
+              :key="i"
               class="bg-black w-[calc(100%/8)] h-[calc(100%/8)] opacity-0 hover:opacity-100 transition-all duration-500 ease-in delay-200 hover:transition-none"
             />
           </div>
         </div>
       </div>
       <div class="flex justify-between text-xl mt-6">
-        <a :href="$props.url">
+        <a :href="props.url">
           {{ props.name }}
           <div class="w-0 h-[2px] bg-white" :class="`line-` + props.index" />
         </a>
