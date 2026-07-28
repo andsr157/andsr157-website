@@ -1,6 +1,9 @@
 export default defineAppConfig({
   title: 'Andsr157 — Portfolio',
   email: 'andikasatrio159@gmail.com',
+  icon: {
+    mode: 'svg',
+  },
   social: {
     github: 'https://github.com/andsr157',
     linkedin: 'https://www.linkedin.com/in/andika-satrio-nugroho/',

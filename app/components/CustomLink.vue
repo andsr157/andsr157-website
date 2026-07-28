@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { gsap } from "gsap"
-import { ref } from "vue"
+import { computed, ref } from "vue"
+import { useMediaQuery } from "@vueuse/core"
 
 interface Props {
   label: string
@@ -11,6 +12,9 @@ interface Props {
 const props = withDefaults(defineProps<Props>(), {
   withArrow: false,
 })
+
+const reduceMotion = useMediaQuery("(prefers-reduced-motion: reduce)")
+const duration = computed(() => (reduceMotion.value ? 0 : 0.4))
 
 const SPACE_ENTITY = "&#32;"
 
@@ -51,20 +55,20 @@ const startAnimation = (event: MouseEvent) => {
   tlHidden.to(hiddenCharsElements, {
     y: -10,
     opacity: 0,
-    duration: 0.4,
+    duration: duration.value,
     stagger: 0.1,
   })
 
   tlVisible.to(visibleCharsElements, {
     y: -24,
     opacity: 1,
-    duration: 0.4,
+    duration: duration.value,
     stagger: 0.1,
   })
 
   tlArrow.to(arrowElement, {
     rotation: "90",
-    duration: 0.4,
+    duration: duration.value,
   })
 }
 
@@ -73,21 +77,21 @@ const reverseAnimation = () => {
     gsap.to(hiddenCharsElements, {
       y: 0,
       opacity: 1,
-      duration: 0.4,
+      duration: duration.value,
       stagger: 0.1,
     })
 
     gsap.to(visibleCharsElements, {
       y: 0,
       opacity: 1,
-      duration: 0.4,
+      duration: duration.value,
       stagger: 0.1,
     })
 
     // Memutar panah kembali ke posisi awal
     tlArrow.to(arrowElement, {
       rotation: "0",
-      duration: 0.4,
+      duration: duration.value,
     })
   }
 }

@@ -10,12 +10,8 @@ const { projects, loadMore, hasMore } = useProjects()
 const tween = ref<gsap.core.Tween | null>(null)
 const underline = ref<gsap.core.Tween[]>([])
 
-const numSquares = ref<number>(0)
-const squareSideLength = ref<number>(0)
-
 onMounted(async () => {
   await nextTick()
-  setupImageSquares()
 
   tween.value = gsap.to('.add', {
     rotate: 360,
@@ -33,23 +29,9 @@ watch(
       await nextTick()
       animateNewProjects(oldLength, newLength)
       updateUnderlines()
-      setupImageSquares()
     }
   },
 )
-
-const setupImageSquares = () => {
-  const imageContainer = document.querySelector('.imageContainer') as HTMLElement | null
-  if (!imageContainer) return
-
-  const imageContainerWidth = imageContainer.offsetWidth
-  const imageContainerHeight = imageContainer.offsetHeight
-  squareSideLength.value = Math.min(imageContainerWidth, imageContainerHeight) / 8
-
-  const numSquaresWidth = Math.floor(imageContainerWidth / squareSideLength.value)
-  const numSquaresHeight = Math.floor(imageContainerHeight / squareSideLength.value)
-  numSquares.value = numSquaresHeight * numSquaresWidth
-}
 
 const updateUnderlines = () => {
   underline.value = projects.value.map((_, index) => {
@@ -98,11 +80,11 @@ const reverseTween = () => {
 </script>
 
 <template>
-  <section class="mt-48 lg:px-10 project max-w-[1600px] mx-auto">
+  <section class="pt-[var(--section-py)] project w-full">
     <div class="mb-8">
-      <h1 class="text-center text-6xl lg:text-[192px] font-medium">PROJECTS</h1>
+      <h1 class="text-center text-display font-medium">PROJECTS</h1>
     </div>
-    <div class="lg:grid grid-cols-2 w-full gap-12 px-3">
+    <div class="grid grid-cols-1 lg:grid-cols-2 w-full gap-8 lg:gap-12">
       <CardProject
         v-for="(data, index) in projects"
         :key="index"
@@ -119,13 +101,13 @@ const reverseTween = () => {
 
       <div
         v-if="hasMore"
-        class="w-full lg:max-h-[430px] text-xl border border-white border-opacity-20 rounded-[50px]"
+        class="w-full min-h-[350px] md:min-h-[400px] text-xl border border-white border-opacity-20 rounded-[32px] md:rounded-[50px] cursor-pointer"
         @click="onLoadMore()"
         @mouseenter="playTween()"
         @mouseleave="reverseTween()"
       >
         <div
-          class="flex flex-col h-[350px] md:h-[400px] lg:h-[400px] items-center justify-center pt-5 pb-9"
+          class="flex flex-col h-[350px] md:h-[400px] items-center justify-center pt-5 pb-9"
         >
           <div class="relative">
             <Icon

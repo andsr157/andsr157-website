@@ -7,16 +7,16 @@ const props = defineProps<{
   year: string
 }>()
 
+const imageContainer = ref<HTMLElement | null>(null)
 const numSquares = ref<number>(0)
 const squareSideLength = ref<number>(0)
 
 onMounted(async () => {
   await nextTick()
-  const imageContainer = document.querySelector('.imageContainer') as HTMLElement | null
-  if (!imageContainer) return
+  if (!imageContainer.value) return
 
-  const imageContainerWidth = imageContainer.offsetWidth
-  const imageContainerHeight = imageContainer.offsetHeight
+  const imageContainerWidth = imageContainer.value.offsetWidth
+  const imageContainerHeight = imageContainer.value.offsetHeight
   squareSideLength.value = Math.min(imageContainerWidth, imageContainerHeight) / 8
 
   const numSquaresWidth = Math.floor(imageContainerWidth / squareSideLength.value)
@@ -29,10 +29,10 @@ onMounted(async () => {
   <div class="w-full mb-10">
     <a :href="props.url">
       <div class="rounded-xl md:rounded-[50px] overflow-hidden relative">
-        <div class="imageContainer relative z-30 bg-white">
+        <div ref="imageContainer" class="imageContainer relative z-30 bg-white">
           <img
             :src="props.image"
-            alt=""
+            :alt="props.name"
             class="project-image w-full -mt-3 h-[250px] md:h-[400px] lg:h-[400px] object-cover"
           />
           <div

@@ -17,12 +17,12 @@ const props = withDefaults(
 
 <template>
   <div
-    class="p-6 lg:p-[50px] w-full lg:w-[1024px] rounded-[48px] font-NeueHaas"
+    class="p-6 md:p-8 lg:p-10 xl:p-12 w-full rounded-[32px] md:rounded-[40px] lg:rounded-[48px] font-NeueHaas"
     :style="`background-color:${bgColor}`"
   >
-    <div class="lg:flex mb-6 gap-x-24">
+    <div class="flex flex-col lg:flex-row mb-6 gap-6 lg:gap-x-16 xl:gap-x-24">
       <div
-        class="rounded-full w-[150px] h-[150px] lg:w-[300px] lg:h-[300px] overflow-hidden bg-white lg:shrink-0 mx-auto lg:mx-0 mb-3 lg:mb-0"
+        class="rounded-full w-32 h-32 md:w-48 md:h-48 lg:w-64 lg:h-64 xl:w-80 xl:h-80 overflow-hidden bg-white shrink-0 mx-auto lg:mx-0"
       >
         <video
           autoplay
@@ -37,24 +37,24 @@ const props = withDefaults(
           Your browser does not support the video tag.
         </video>
       </div>
-      <div>
+      <div class="flex items-center">
         <h3
-          class="text-xs lg:text-3xl text-justify"
+          class="text-sm md:text-xl lg:text-2xl xl:text-3xl text-justify"
           :class="`${text === 'dark' ? 'text-black' : ''}`"
         >
           {{ desc }}
         </h3>
       </div>
     </div>
-    <div class="flex justify-between">
+    <div class="flex justify-between items-end gap-4">
       <h2
-        class="text-[28px] lg:text-[90px]"
+        class="text-[clamp(1.75rem,5vw,5.625rem)] leading-none"
         :class="`${text === 'dark' ? 'text-black' : ''} `"
       >
         {{ title }}
       </h2>
       <h2
-        class="text-[28px] lg:text-[90px] text-[#6d6d6d]"
+        class="text-[clamp(1.75rem,5vw,5.625rem)] leading-none text-[#6d6d6d]"
         :class="`${text === 'white' ? 'text-[#f9fdfe]' : ''}`"
       >
         {{ number }}

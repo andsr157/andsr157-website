@@ -1,9 +1,10 @@
 <template>
-  <section class="w-full max-w-[1600px] mx-auto">
-    <Navbar class="sticky top-0 z-50" />
-    <div
-      class="font-NeueHaas mt-0 text-[32px] xl:text-6xl px-3 xl:px-10 hero__wrapper lg:h-full overflow-hidden"
-    >
+  <section class="breakout">
+    <div class="max-w-[1600px] mx-auto px-3 xl:px-10">
+      <Navbar class="sticky top-0 z-50" />
+      <div
+        class="font-NeueHaas mt-0 text-[32px] xl:text-6xl hero__wrapper lg:h-full overflow-hidden"
+      >
       <div class="content1">
         <div
           class="xl:flex relative items-center hero__main_layer h-[50vh] lg:h-[80vh] lg:pb-10 overflow-hidden"
@@ -17,7 +18,8 @@
             loop
             muted
             autoplay
-            class="lg:w-[668px] h-fulll main_video xl:absolute xl:-z-10 xl:left-1/2 xl:-translate-x-1/2"
+            playsinline
+            class="lg:w-[668px] h-auto main_video xl:absolute xl:-z-10 xl:left-1/2 xl:-translate-x-1/2"
           >
             <source src="/logo.mp4" />
           </video>
@@ -65,6 +67,7 @@
             memberikan pengalaman pengguna yang luar biasa
           </p>
         </div>
+      </div>
       </div>
     </div>
   </section>

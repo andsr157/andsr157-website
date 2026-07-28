@@ -16,14 +16,14 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="max-w-[1600px] mx-auto">
-    <div class="grid xl:grid-cols-3 py-6 lg:py-8 px-10 text-base items-center">
-      <div class="text-left font-NeueHaas hidden lg:block">Andsr157</div>
-      <div class="text-center font-NeueHaas">{{ currentTime }}</div>
-      <div class="lg:flex justify-end gap-1 items-center hidden">
-        <div class="text-left font-NeueHaas">Say hi</div>
+  <div class="w-full">
+    <div class="flex items-center justify-between py-4 md:py-6 lg:py-8 text-sm md:text-base">
+      <div class="font-NeueHaas">Andsr157</div>
+      <div class="font-NeueHaas absolute left-1/2 -translate-x-1/2">{{ currentTime }}</div>
+      <div class="hidden md:flex items-center gap-1">
+        <div class="font-NeueHaas">Say hi</div>
         <div><Icon name="system-uicons:minus" size="2em" /></div>
-        <div class="text-left font-NeueHaas text-[#6d6d6d]">
+        <div class="font-NeueHaas text-[#6d6d6d]">
           andikasatrio159@gmail.com
         </div>
       </div>

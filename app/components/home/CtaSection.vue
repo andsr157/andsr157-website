@@ -12,10 +12,10 @@ const interestOptions = [
 </script>
 
 <template>
-  <section class="px-3 lg:px-10 pb-24 max-w-[1600px] mx-auto">
-    <div class="lg:grid grid-cols-2 gap-10">
+  <section class="pt-[var(--section-py)] pb-24 w-full">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
       <div class="flex flex-col w-full justify-between">
-        <div class="text-5xl lg:text-[90px]">
+        <div class="text-headline">
           <h2>AYO MULAI</h2>
           <h2 class="text-right">BUAT</h2>
           <h2 class="text-center">BERSAMA</h2>
@@ -28,7 +28,7 @@ const interestOptions = [
               andikasatrio159@gmail.com
             </div>
           </div>
-          <div class="flex flex-wrap lg:flex-nowrap gap-3 lg:gap-0 lg:gap-x-6">
+          <div class="flex flex-wrap justify-center lg:justify-start gap-3 lg:gap-x-6">
             <div>
               <CustomLink
                 label="Github"
@@ -68,7 +68,7 @@ const interestOptions = [
         </div>
       </div>
       <div
-        class="p-5 lg:p-[30px] border-[1px] border-opacity-20 border-white w-full rounded-3xl mt-6 lg:mt-0"
+        class="p-5 lg:p-8 border-[1px] border-opacity-20 border-white w-full rounded-3xl mt-6 lg:mt-0"
       >
         <form @submit.prevent="sendMessage">
           <div v-if="error" class="mb-4 text-red-400 text-sm">
@@ -77,7 +77,7 @@ const interestOptions = [
           <div class="mb-5">
             <label for="" class="text-sm">Your Data</label>
             <div
-              class="flex flex-col lg:flex-row flex-grow mt-4 gap-y-4 lg:gap-y-0 gap-x-7 text-xs llg:text-base"
+              class="flex flex-col lg:flex-row flex-grow mt-4 gap-y-4 lg:gap-y-0 gap-x-7 text-xs lg:text-base"
             >
               <input
                 v-model="form.name"
@@ -113,7 +113,7 @@ const interestOptions = [
           <div class="mb-5">
             <textarea
               v-model="form.question"
-              class="border-[1px] border-white border-opacity-20 p-5 w-full bg-transparent rounded-xl text-xs llg:text-base min-h-[120px] resize-none"
+              class="border-[1px] border-white border-opacity-20 p-5 w-full bg-transparent rounded-xl text-xs lg:text-base min-h-[120px] resize-none"
               placeholder="Your question"
             ></textarea>
           </div>

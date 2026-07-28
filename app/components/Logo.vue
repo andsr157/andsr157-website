@@ -3,5 +3,5 @@ const { experience } = useThreeLogo()
 </script>
 
 <template>
-  <canvas ref="experience" class="!w-full !h-[100vh]" />
+  <canvas ref="experience" class="!w-full !h-[100dvh]" />
 </template>

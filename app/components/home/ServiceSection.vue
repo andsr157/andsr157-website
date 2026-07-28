@@ -8,10 +8,10 @@ const larger = breakpoints.greaterOrEqual("xl")
 
 <template>
   <section
-    class="font-NeueHaas mt-16 lg:mt-96 px-3 lg:ps-10 lg:pe-0 overflow-hidden"
+    class="font-NeueHaas pt-[var(--section-py)] px-0 overflow-hidden"
   >
-    <div class="mb-8 lg:px-10">
-      <h1 class="text-center text-6xl lg:text-[192px] font-medium">SERVICES</h1>
+    <div class="mb-8">
+      <h1 class="text-center text-display font-medium">SERVICES</h1>
     </div>
     <div class="wrapper">
       <div class="lg:grid grid-cols-2 service">

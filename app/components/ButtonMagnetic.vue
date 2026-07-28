@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import gsap from "gsap";
+import { useMediaQuery } from "@vueuse/core";
 
 const props = defineProps<{
   title: string;
@@ -10,38 +11,37 @@ const emit = defineEmits<{
   (e: "click"): void;
 }>();
 
+const isPointerFine = useMediaQuery("(hover: hover) and (pointer: fine)");
+
 const magnetic = (e: any): void => {
-  console.log(e);
-  let x = e.clientX;
-  let y = e.clientY;
+  if (!isPointerFine.value) return;
 
-  let btn = e.target;
+  const btn = e.target;
+  if (!btn) return;
 
-  if (btn) {
-    let btnRect = btn.getBoundingClientRect();
-    let btnCenterX = btnRect.left + btnRect.width / 2;
-    let btnCenterY = btnRect.top + btnRect.height / 2;
+  const btnRect = btn.getBoundingClientRect();
+  const btnCenterX = btnRect.left + btnRect.width / 2;
+  const btnCenterY = btnRect.top + btnRect.height / 2;
 
-    let moveX = (x - btnCenterX) / 4;
-    let moveY = (y - btnCenterY) / 4;
+  const moveX = (e.clientX - btnCenterX) / 4;
+  const moveY = (e.clientY - btnCenterY) / 4;
 
-    gsap.to(btn, {
-      x: moveX,
-      y: moveY,
-      duration: 1,
-    });
-  }
+  gsap.to(btn, {
+    x: moveX,
+    y: moveY,
+    duration: 1,
+  });
 };
 
 const releaseMagnetic = (e: any): void => {
-  let btn = e.target;
-  if (btn) {
-    gsap.to(btn, {
-      x: "",
-      y: "",
-      duration: 1,
-    });
-  }
+  const btn = e.target;
+  if (!btn) return;
+
+  gsap.to(btn, {
+    x: 0,
+    y: 0,
+    duration: 1,
+  });
 };
 </script>
 
@@ -49,7 +49,7 @@ const releaseMagnetic = (e: any): void => {
   <div class="button-box" @mousemove="magnetic" @mouseout="releaseMagnetic">
     <button
       type="button"
-      class="btn min-w-28 border rounded-full p-4 lg:py-4 lg:px-10 text-xs lg:text-base transition-colors duration-300"
+      class="btn min-w-28 border rounded-full px-4 py-2.5 md:px-6 md:py-3 lg:px-10 lg:py-4 text-xs md:text-sm lg:text-base transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
       :class="
         props.selected
           ? 'border-white bg-white text-black'
