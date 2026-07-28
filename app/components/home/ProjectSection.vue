@@ -1,11 +1,9 @@
 <script setup lang="ts">
 import gsap from 'gsap'
-import { breakpointsTailwind, useBreakpoints } from '@vueuse/core'
-
-const breakpoints = useBreakpoints(breakpointsTailwind)
-const larger = breakpoints.greaterOrEqual('xl')
 
 const { projects, loadMore, hasMore } = useProjects()
+
+useProjectImageAnimation()
 
 const tween = ref<gsap.core.Tween | null>(null)
 const underline = ref<gsap.core.Tween[]>([])
@@ -84,11 +82,11 @@ const reverseTween = () => {
     <div class="mb-8">
       <h1 class="text-center text-display font-medium">PROJECTS</h1>
     </div>
-    <div class="grid grid-cols-1 lg:grid-cols-2 w-full gap-8 lg:gap-12">
+    <div class="grid grid-cols-1 lg:grid-cols-2 w-full gap-6 md:gap-8 lg:gap-12">
       <CardProject
         v-for="(data, index) in projects"
         :key="index"
-        class="w-full mb-10"
+        class="w-full"
         :class="'project-' + index"
         :index="index"
         :name="data.name"
@@ -101,18 +99,18 @@ const reverseTween = () => {
 
       <div
         v-if="hasMore"
-        class="w-full min-h-[350px] md:min-h-[400px] text-xl border border-white border-opacity-20 rounded-[32px] md:rounded-[50px] cursor-pointer"
+        class="w-full min-h-[280px] sm:min-h-[350px] md:min-h-[400px] text-lg md:text-xl border border-white border-opacity-20 rounded-[24px] md:rounded-[32px] lg:rounded-[50px] cursor-pointer"
         @click="onLoadMore()"
         @mouseenter="playTween()"
         @mouseleave="reverseTween()"
       >
         <div
-          class="flex flex-col h-[350px] md:h-[400px] items-center justify-center pt-5 pb-9"
+          class="flex flex-col h-[280px] sm:h-[350px] md:h-[400px] items-center justify-center pt-5 pb-9"
         >
-          <div class="relative">
+          <div class="relative text-[5em] xl:text-[10em]">
             <Icon
               name="mdi-light:plus"
-              :size="`${larger === true ? '10em' : '6em'}`"
+              size="1em"
               class="add !max-w-max !max-h-max"
             />
           </div>

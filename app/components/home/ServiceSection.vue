@@ -1,29 +1,25 @@
 <script setup lang="ts">
 import gsap from "gsap"
-import { breakpointsTailwind, useBreakpoints } from "@vueuse/core"
-const breakpoints = useBreakpoints(breakpointsTailwind)
-
-const larger = breakpoints.greaterOrEqual("xl")
 </script>
 
 <template>
   <section
-    class="font-NeueHaas pt-[var(--section-py)] px-0 overflow-hidden"
+    class="font-NeueHaas pt-[var(--section-py)] px-4 md:px-6 lg:px-0 overflow-hidden"
   >
     <div class="mb-8">
       <h1 class="text-center text-display font-medium">SERVICES</h1>
     </div>
     <div class="wrapper">
       <div class="lg:grid grid-cols-2 service">
-        <div class="flex flex-row lg:flex-col justify-between mb-4 lg:mb-0">
-          <h2 class="text-2xl lg:text-6xl">
+        <div class="flex flex-row lg:flex-col justify-between mb-6 lg:mb-0 gap-4">
+          <h2 class="text-3xl md:text-4xl lg:text-6xl">
             Pengembangan <br />
             Web Frontend
           </h2>
-          <div class="mb-16">
+          <div class="mb-0 lg:mb-16 shrink-0 text-[3em] xl:text-[5em]">
             <Icon
               name="material-symbols:subdirectory-arrow-right"
-              :size="`${larger === true ? '6em' : '4em'}`"
+              size="1em"
             />
           </div>
         </div>

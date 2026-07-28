@@ -111,9 +111,11 @@ const interestOptions = [
             </div>
           </div>
           <div class="mb-5">
+            <label for="question" class="text-sm">Your question</label>
             <textarea
+              id="question"
               v-model="form.question"
-              class="border-[1px] border-white border-opacity-20 p-5 w-full bg-transparent rounded-xl text-xs lg:text-base min-h-[120px] resize-none"
+              class="border-[1px] border-white border-opacity-20 p-5 mt-4 w-full bg-transparent rounded-xl text-xs lg:text-base min-h-[120px] md:min-h-[160px] resize-none"
               placeholder="Your question"
             ></textarea>
           </div>

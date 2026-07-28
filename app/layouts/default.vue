@@ -1,12 +1,6 @@
 <script setup lang="ts">
-import { breakpointsTailwind, useBreakpoints } from '@vueuse/core'
-
-const breakpoints = useBreakpoints(breakpointsTailwind)
-const larger = breakpoints.greaterOrEqual('xl')
-
-useHeroAnimation(larger)
+useHeroAnimation()
 useServicesAnimation()
-useProjectImageAnimation()
 useProgressBar()
 </script>
 

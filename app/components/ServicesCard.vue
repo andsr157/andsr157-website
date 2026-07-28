@@ -17,7 +17,7 @@ const props = withDefaults(
 
 <template>
   <div
-    class="p-6 md:p-8 lg:p-10 xl:p-12 w-full rounded-[32px] md:rounded-[40px] lg:rounded-[48px] font-NeueHaas"
+    class="services-card p-6 md:p-8 lg:p-10 xl:p-12 w-full rounded-[32px] md:rounded-[40px] lg:rounded-[48px] font-NeueHaas"
     :style="`background-color:${bgColor}`"
   >
     <div class="flex flex-col lg:flex-row mb-6 gap-6 lg:gap-x-16 xl:gap-x-24">
