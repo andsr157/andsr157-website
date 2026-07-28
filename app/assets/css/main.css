@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Neue Haas Grotesk Display Pro";
+  src: url("../font/NeueHaasDisplay-Roman.woff2") format("woff2"),
+    url("../font/NeueHaasDisplay-Roman.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --max-w: 1440px;
+  --section-px: clamp(0.75rem, 4vw, 2.5rem);
+  --section-py: clamp(4rem, 10vw, 10rem);
+  --heading-xl: clamp(3rem, 10vw, 12rem);
+  --heading-lg: clamp(2rem, 6vw, 6rem);
+  --text-body: clamp(0.875rem, 1.5vw, 1.125rem);
+  --line-height-tight: 1.05;
+  --line-height-body: 1.5;
+}
+
+html,
+body,
+#__nuxt,
+#__layout {
+  height: 100% !important;
+  width: 100% !important;
+  font-family: "Neue Haas Grotesk Display Pro", "Arial", "Helvetica",
+    "sans-serif";
+}
+
+body {
+  background-color: #000;
+  color: #f9fdfe;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.container-site {
+  width: 100%;
+  max-width: var(--max-w);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--section-px);
+  padding-right: var(--section-px);
+}
+
+.text-display {
+  font-size: var(--heading-xl);
+  line-height: var(--line-height-tight);
+  font-weight: 500;
+}
+
+.text-headline {
+  font-size: var(--heading-lg);
+  line-height: var(--line-height-tight);
+}
+
+.text-body-lg {
+  font-size: var(--text-body);
+  line-height: var(--line-height-body);
+}
+
+.breakout {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
