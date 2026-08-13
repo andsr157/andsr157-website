@@ -3,7 +3,13 @@ import type { ProjectRepository } from '~/repositories/project.repository'
 
 const PROJECTS: Project[] = [
   {
-    name: 'Blog',
+    name: 'Arunika Pilar',
+    year: '2026',
+    imageUrl: '/projects/img22.png',
+    projectUrl: 'https://arunikapilar.co.id/',
+  },
+  {
+    name: 'Manesa Blog',
     year: '2025',
     imageUrl: '/projects/img21.png',
     projectUrl: 'https://ressurect.manesaraditya.com/',

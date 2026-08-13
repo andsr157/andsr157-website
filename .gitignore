@@ -23,7 +23,3 @@ logs
 .env.*
 !.env.example
 
-.agents
-docs
-skills-lock.json
-plan
