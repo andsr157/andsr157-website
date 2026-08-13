@@ -1,3 +1,9 @@
+<script setup lang="ts">
+const heroVideo = ref<HTMLVideoElement | null>(null);
+
+useProtectedVideo(heroVideo, "/logo.mp4");
+</script>
+
 <template>
   <section class="breakout">
     <div class="max-w-[1600px] mx-auto px-4 md:px-6 xl:px-10">
@@ -17,14 +23,13 @@
             </div>
 
             <video
+              ref="heroVideo"
               loop
               muted
               autoplay
               playsinline
               class="w-[260px] sm:w-[320px] md:w-[420px] lg:w-[560px] xl:w-[668px] h-auto main_video xl:absolute xl:-z-10 xl:left-1/2 xl:-translate-x-1/2 mx-auto xl:mx-0 my-6 xl:my-0"
-            >
-              <source src="/logo.mp4" />
-            </video>
+            ></video>
             <div
               class="main_text2 text-right w-full lg:max-w-max xl:absolute xl:right-0 pe-1 lg:pe-0 text-[clamp(2rem,8vw,4.5rem)] leading-[1.05]"
             >

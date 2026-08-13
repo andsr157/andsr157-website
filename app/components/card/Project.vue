@@ -59,7 +59,7 @@ watch(gridDivisor, () => {
           <img
             :src="props.image"
             :alt="props.name"
-            class="project-image w-full -mt-3 h-[220px] sm:h-[300px] md:h-[400px] object-cover"
+            class="project-image origin-top block w-full scale-125 h-[220px] sm:h-[300px] md:h-[400px] object-cover"
           />
           <div
             class="w-full h-full absolute z-50 top-0 flex flex-wrap items-stretch"

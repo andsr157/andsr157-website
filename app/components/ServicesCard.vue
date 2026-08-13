@@ -13,6 +13,10 @@ const props = withDefaults(
     bgColor: "#1b1b1b",
   }
 )
+
+const serviceVideo = ref<HTMLVideoElement | null>(null)
+
+useProtectedVideo(serviceVideo, props.videoUrl ?? '')
 </script>
 
 <template>
@@ -25,6 +29,7 @@ const props = withDefaults(
         class="rounded-full w-32 h-32 md:w-48 md:h-48 lg:w-64 lg:h-64 xl:w-80 xl:h-80 overflow-hidden bg-white shrink-0 mx-auto lg:mx-0"
       >
         <video
+          ref="serviceVideo"
           autoplay
           loop
           muted
@@ -32,10 +37,7 @@ const props = withDefaults(
           width="100%"
           height="100%"
           style="width: 100%; height: 100%; object-fit: cover"
-        >
-          <source :src="videoUrl" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+        ></video>
       </div>
       <div class="flex items-center">
         <h3

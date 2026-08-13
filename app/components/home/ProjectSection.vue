@@ -99,13 +99,13 @@ const reverseTween = () => {
 
       <div
         v-if="hasMore"
-        class="w-full min-h-[280px] sm:min-h-[350px] md:min-h-[400px] text-lg md:text-xl border border-white border-opacity-20 rounded-[24px] md:rounded-[32px] lg:rounded-[50px] cursor-pointer"
+        class="w-full h-[220px] sm:h-[300px] md:h-[400px] self-start text-lg md:text-xl border border-white border-opacity-20 rounded-[24px] md:rounded-[32px] lg:rounded-[50px] cursor-pointer"
         @click="onLoadMore()"
         @mouseenter="playTween()"
         @mouseleave="reverseTween()"
       >
         <div
-          class="flex flex-col h-[280px] sm:h-[350px] md:h-[400px] items-center justify-center pt-5 pb-9"
+          class="flex flex-col h-full items-center justify-center pt-5 pb-9"
         >
           <div class="relative text-[5em] xl:text-[10em]">
             <Icon
